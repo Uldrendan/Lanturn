@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 41a227e6a7c789b4da120a9d11b7cd3c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - buttonUp: {instanceID: 0}
+  - buttonDown: {instanceID: 0}
+  - MenuClick: {fileID: 100000, guid: e5b756cd3e7dbff45838c50d729d5168, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

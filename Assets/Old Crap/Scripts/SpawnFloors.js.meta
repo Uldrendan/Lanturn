@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 97c76f890e80f62468fd7f0a0ef11e2d
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - platforms: {fileID: 400002, guid: f1c81f8efee08824583a4d67edca66bc, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
