@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212929918423759996}
   - component: {fileID: 114444112950277248}
   - component: {fileID: 50446827907867522}
+  - component: {fileID: 58524571823926314}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53,15 +54,30 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 08ad390f927476143a55d34072a6c1b3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &58524571823926314
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1532700907928256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 08ad390f927476143a55d34072a6c1b3, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114444112950277248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,9 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d3a8de758040549a73ee98f0e330fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopSpeed: 0
-  TopAcceleration: 0
-  BrakeModifier: 0
 --- !u!212 &212929918423759996
 SpriteRenderer:
   m_ObjectHideFlags: 1

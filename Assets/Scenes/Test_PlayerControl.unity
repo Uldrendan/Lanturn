@@ -707,26 +707,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &742612810 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1532700907928256, guid: 161bca16d8e48ea4f873009114d70e79,
-    type: 2}
-  m_PrefabInternal: {fileID: 1494360211}
---- !u!58 &742612811
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 742612810}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 08ad390f927476143a55d34072a6c1b3, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &783194828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,21 +1545,6 @@ Prefab:
     - target: {fileID: 4610130420082742, guid: 161bca16d8e48ea4f873009114d70e79, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50446827907867522, guid: 161bca16d8e48ea4f873009114d70e79,
-        type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 08ad390f927476143a55d34072a6c1b3, type: 2}
-    - target: {fileID: 50446827907867522, guid: 161bca16d8e48ea4f873009114d70e79,
-        type: 2}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50446827907867522, guid: 161bca16d8e48ea4f873009114d70e79,
-        type: 2}
-      propertyPath: m_Mass
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 161bca16d8e48ea4f873009114d70e79, type: 2}
