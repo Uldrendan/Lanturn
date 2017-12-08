@@ -27,18 +27,31 @@ public class InputHandler {
 	private void RestoreDefaults () {
         //Default Control Scheme
         _inputMap = new MultiValueDictionary<InputType, Delegate> ();
+
         Func<bool> helloWorld = () => Input.GetKeyDown(KeyCode.H);
         _inputMap.Add(InputType.HelloWorld, helloWorld);
-        Func<bool> left = () => Input.GetKey(KeyCode.A);
-        _inputMap.Add(InputType.Left, left);
-        Func<bool> right = () => Input.GetKey(KeyCode.D);
-        _inputMap.Add(InputType.Right, right);
-        Func<bool> up = () => Input.GetKey(KeyCode.W);
-        _inputMap.Add(InputType.Up, up);
-        Func<bool> down = () => Input.GetKey(KeyCode.S);
-        _inputMap.Add(InputType.Down, down);
 
+		Func<bool> left_keyboard = () => Input.GetKey(KeyCode.A);
+		_inputMap.Add(InputType.Left, left_keyboard);
+		Func<float> left_controller = () => Mathf.Abs(Mathf.Min(Input.GetAxis ("Horizontal"),0));
+		_inputMap.Add(InputType.Left, left_controller);
 
+		Func<bool> right_keyboard = () => Input.GetKey(KeyCode.D);
+		_inputMap.Add(InputType.Right, right_keyboard);
+		Func<float> right_controller = () => Mathf.Max(Input.GetAxis ("Horizontal"),0);
+		_inputMap.Add(InputType.Right, right_controller);
+
+        Func<bool> up_keyboard = () => Input.GetKey(KeyCode.W);
+		_inputMap.Add(InputType.Up, up_keyboard);
+		Func<float> up_controller = () => Mathf.Max(Input.GetAxis ("Vertical"),0);
+		_inputMap.Add(InputType.Up, up_controller);
+		Func<bool> up_A = () => Input.GetButton ("A");
+		_inputMap.Add(InputType.Up, up_A);
+
+		Func<bool> down_keyboard = () => Input.GetKey(KeyCode.S);
+		_inputMap.Add(InputType.Down, down_keyboard);
+		Func<float> down_controller = () => Mathf.Abs(Mathf.Min(Input.GetAxis ("Vertical"),0));
+		_inputMap.Add(InputType.Down, down_controller);
     }
 
     // High-Level Input Functions
@@ -82,8 +95,10 @@ public class InputHandler {
                 Debug.LogError("GetPlayerInputFloat: Input delegate " + del + " returned < 0; setting to 0.");
                 value = 0;
             }
-            if (value > maxValue)
-                maxValue = value;
+			if (value > maxValue) 
+			{
+				maxValue = value;
+			}
         }
         return maxValue;
     }

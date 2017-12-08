@@ -32,9 +32,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log("I am updating.");
+
         // RIGHT Input
         Vector2 currentVelocity = _rigidbody2D.velocity;
         float rightInput = _inputHandler.GetPlayerInputFloat(InputType.Right);
+		Debug.Log (rightInput);
         Vector2 rightVector = new Vector2(rightInput * TopAcceleration * Time.deltaTime, 0);
         if (currentVelocity.x < TopSpeed)
         {
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
         // JUMP Input
         currentVelocity = _rigidbody2D.velocity;
         float upInput = _inputHandler.GetPlayerInputFloat(InputType.Up);
-        if(upInput > 0.5f)
+        if(upInput > 0.25f)
         {
             Vector2 upVector;
             // if touching floor
