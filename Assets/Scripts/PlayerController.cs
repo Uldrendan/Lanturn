@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
         // RIGHT Input
         Vector2 currentVelocity = _rigidbody2D.velocity;
         float rightInput = _inputHandler.GetPlayerInputFloat(InputType.Right);
-		Debug.Log (rightInput);
         Vector2 rightVector = new Vector2(rightInput * TopAcceleration * Time.deltaTime, 0);
         if (currentVelocity.x < TopSpeed)
         {
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
         // JUMP Input
         currentVelocity = _rigidbody2D.velocity;
         float upInput = _inputHandler.GetPlayerInputFloat(InputType.Up);
-        if(upInput > 0.25f)
+        if(upInput > 0.35f)
         {
             Vector2 upVector;
             // if touching floor
@@ -71,10 +70,10 @@ public class PlayerController : MonoBehaviour
                 upVector = new Vector2(0, upInput * JumpSpeed);
                 _rigidbody2D.velocity = new Vector3(currentVelocity.x, upVector.y); ;
             }
-            // if not touching floor
-            else
+            // if not touching floor and moving up
+			else if (_rigidbody2D.velocity.y > 0)
             {
-                upVector = new Vector2(0, upInput * Physics2D.gravity.magnitude * 0.5f * Time.deltaTime);
+                upVector = new Vector2(0, upInput * Physics2D.gravity.magnitude * 0.4f * Time.deltaTime);
                 _rigidbody2D.velocity = currentVelocity + upVector;
             };
         }
