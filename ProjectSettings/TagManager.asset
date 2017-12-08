@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - tutorialfloor
+  - options
+  - wall
+  - floor
+  - Platform
+  - gold
+  - magnet
+  - fuel
+  - boots
+  - spike
   layers:
   - Default
   - TransparentFX
@@ -13,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Floor
   - 
   - 
   - 
