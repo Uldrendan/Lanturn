@@ -24,9 +24,9 @@ TagManager:
   - 
   - 
   - Floor
-  - 
-  - 
-  - 
+  - Ceiling
+  - WallLeft
+  - WallRight
   - 
   - 
   - 

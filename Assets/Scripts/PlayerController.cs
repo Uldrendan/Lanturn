@@ -62,19 +62,29 @@ public class PlayerController : MonoBehaviour
         float upInput = _inputHandler.GetPlayerInputFloat(InputType.Up);
         if(upInput > 0.35f)
         {
-            Vector2 upVector;
+            Vector2 jumpVector;
             // if touching floor
 
             if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Floor")))
             {
-                upVector = new Vector2(0, upInput * JumpSpeed);
-                _rigidbody2D.velocity = new Vector3(currentVelocity.x, upVector.y); ;
+                jumpVector = new Vector2(0, upInput * JumpSpeed);
+                _rigidbody2D.velocity = new Vector3(currentVelocity.x, jumpVector.y); ;
+            }
+            else if (_collider2D.IsTouchingLayers(LayerMask.GetMask("WallLeft")))
+            {
+                jumpVector = new Vector2(-1, 1).normalized * upInput * JumpSpeed;
+                _rigidbody2D.velocity = jumpVector;
+            }
+            else if (_collider2D.IsTouchingLayers(LayerMask.GetMask("WallRight")))
+            {
+                jumpVector = new Vector2(1,1).normalized * upInput * JumpSpeed;
+                _rigidbody2D.velocity = jumpVector;
             }
             // if not touching floor and moving up
-			else if (_rigidbody2D.velocity.y > 0)
+            else if (_rigidbody2D.velocity.y > 0)
             {
-                upVector = new Vector2(0, upInput * Physics2D.gravity.magnitude * 0.4f * Time.deltaTime);
-                _rigidbody2D.velocity = currentVelocity + upVector;
+                jumpVector = new Vector2(0, upInput * Physics2D.gravity.magnitude * 0.4f * Time.deltaTime);
+                _rigidbody2D.velocity += jumpVector;
             };
         }
     }
