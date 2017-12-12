@@ -63,8 +63,13 @@ public class PlayerController : MonoBehaviour
         if(upInput > 0.35f)
         {
             Vector2 jumpVector;
+            // if touching ceiling, do NOTHING
+            if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Ceiling")))
+            {
+                // NOTHING
+            }
             // if touching floor, do regular jump
-            if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Floor")))
+            else if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Floor")))
             {
                 jumpVector = new Vector2(0, upInput * JumpSpeed);
                 _rigidbody2D.velocity = new Vector3(currentVelocity.x, jumpVector.y); ;
