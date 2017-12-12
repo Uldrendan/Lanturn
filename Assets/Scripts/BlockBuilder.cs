@@ -2,17 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Utility;
 
 public class BlockBuilder
-{
-
-    private GameObject BlockPrefab;
-
+{ 
+    private GameObject _blockPrefab;
 
     public BlockBuilder()
     {
-        BlockPrefab = GetBlockPrefab();
+        _blockPrefab = GetBlockPrefab();
     }
     private GameObject GetBlockPrefab()
     {
@@ -21,10 +19,9 @@ public class BlockBuilder
 
     public void BuildBlock(Vector2 centrePosition, Vector2 dimensions)
     {
-        GameObject block_GO = GameObject.Instantiate(BlockPrefab,centrePosition,Quaternion.identity);
+        GameObject block_GO = GameObject.Instantiate(_blockPrefab, centrePosition,Quaternion.identity);
         Block block = block_GO.GetComponent<Block>();
         block.Initialize();
         block.SetDimensions(dimensions);
     }
-
 }

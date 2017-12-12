@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Utility
 {
     public enum InputType { Left, Right, Jump, Up, Down, Pause, UseItem, HelloWorld };
+    public enum ObjectType { Block };
+
 
     public static class TypeCast
     {

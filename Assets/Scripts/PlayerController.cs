@@ -63,24 +63,25 @@ public class PlayerController : MonoBehaviour
         if(upInput > 0.35f)
         {
             Vector2 jumpVector;
-            // if touching floor
-
+            // if touching floor, do regular jump
             if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Floor")))
             {
                 jumpVector = new Vector2(0, upInput * JumpSpeed);
                 _rigidbody2D.velocity = new Vector3(currentVelocity.x, jumpVector.y); ;
             }
+            // if touching wall, do wall jump (left)
             else if (_collider2D.IsTouchingLayers(LayerMask.GetMask("WallLeft")))
             {
                 jumpVector = new Vector2(-1, 1).normalized * upInput * JumpSpeed;
                 _rigidbody2D.velocity = jumpVector;
             }
+            // if touching wall, do wall jump (right)
             else if (_collider2D.IsTouchingLayers(LayerMask.GetMask("WallRight")))
             {
                 jumpVector = new Vector2(1,1).normalized * upInput * JumpSpeed;
                 _rigidbody2D.velocity = jumpVector;
             }
-            // if not touching floor and moving up
+            // if not touching floor and moving up, fight gravity
             else if (_rigidbody2D.velocity.y > 0)
             {
                 jumpVector = new Vector2(0, upInput * Physics2D.gravity.magnitude * 0.4f * Time.deltaTime);
