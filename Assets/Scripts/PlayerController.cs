@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
         float upInput = _inputHandler.GetPlayerInputFloat(InputType.Up);
         if(upInput > 0.35f)
         {
+
+            // TODO: Brake
             Vector2 jumpVector;
             // if touching ceiling, do NOTHING
             if (_collider2D.IsTouchingLayers(LayerMask.GetMask("Ceiling")))

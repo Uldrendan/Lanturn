@@ -28,6 +28,23 @@ public class Block : MonoBehaviour {
         set { SetDimensions(value); }
     }
 
+    public float Left
+    {
+        get { return transform.position.x - (Dimensions.x / 2); }
+    }
+    public float Right
+    {
+        get { return transform.position.x + (Dimensions.x / 2); }
+    }
+    public float Top
+    {
+        get { return transform.position.y + (Dimensions.y / 2); }
+    }
+    public float Bottom
+    {
+        get { return transform.position.y - (Dimensions.y / 2); }
+    }
+
     public void Initialize()
     {
         _leftSideTransform = transform.Find("LeftSide");
