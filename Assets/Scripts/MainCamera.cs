@@ -10,10 +10,22 @@ public class MainCamera : MonoBehaviour {
 	void Start () {
         _playerTransform = GameObject.Find("Player").transform;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        Vector2 posn = _playerTransform.position;
-        transform.position = new Vector3(posn.x, posn.y, -10);
-	}
+
+    private int _cameraLeashLength = 20; //number is temporary, will be replaced with calculation based off of "world height"
+
+    // Update is called once per frame
+    void Update () {
+        Vector2 playerPosition = _playerTransform.position;
+        Vector2 cameraPosition = transform.position;
+        
+        if (playerPosition.y - cameraPosition.y < - _cameraLeashLength) 
+        {
+            cameraPosition.y = playerPosition.y + _cameraLeashLength;
+        }
+        else if (playerPosition.y - cameraPosition.y > _cameraLeashLength)
+        {
+            cameraPosition.y = playerPosition.y - _cameraLeashLength;
+        }
+        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, -10);
+    }
 }
