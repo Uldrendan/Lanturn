@@ -35,12 +35,17 @@ public class InputHandler {
 		_inputMap.Add(InputType.Left, left_keyboard);
 		Func<float> left_controller = () => Mathf.Abs(Mathf.Min(Input.GetAxis ("Horizontal"),0));
 		_inputMap.Add(InputType.Left, left_controller);
+        Func<bool> left_touch = () => Input.touchCount > 0 ? Input.GetTouch(0).position.x < Screen.width/2 : false;
+        _inputMap.Add(InputType.Left, left_touch);
 
 		Func<bool> right_keyboard = () => Input.GetKey(KeyCode.D);
 		_inputMap.Add(InputType.Right, right_keyboard);
 		Func<float> right_controller = () => Mathf.Max(Input.GetAxis ("Horizontal"),0);
 		_inputMap.Add(InputType.Right, right_controller);
+        Func<bool> right_touch = () => Input.touchCount > 0 ? Input.GetTouch(0).position.x > Screen.width / 2 : false;
+        _inputMap.Add(InputType.Right, right_touch);
 
+        //Question, how do we do jumping for touch? Two fingers?
         Func<bool> up_keyboard = () => Input.GetKey(KeyCode.W);
 		_inputMap.Add(InputType.Up, up_keyboard);
 		Func<float> up_controller = () => Mathf.Max(Input.GetAxis ("Vertical"),0);
@@ -132,5 +137,5 @@ public class InputHandler {
         else if (value.GetType() == typeof(bool)) return TypeCast.BoolToFloat((bool) value);
         else Debug.LogError("GetPlayerInputFloat: Unexpected return type from input delegate" + inputFunction + "; returning 0.");
         return 0;
-    }
+    }   
 }
